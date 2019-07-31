@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android = "http://schemas.android.com/apk/res/android" >
+<data class="BindingUser">
+	<import type = "com.example.myapplicationc.bean.Gson"
+			alias="Gsonic"/>
+	<import type = "com.example.myapplicationc.viewmodel.FramgetContet"
+			alias="FramContet"/>
+	<variable
+			name = "gson"
+			type = "Gsonic" />
+	<variable
+			name = "fc"
+			type = "FramContet" />
+
+</data >
+	<LinearLayout
+			android:layout_width = "match_parent"
+			android:layout_height = "match_parent"
+			android:orientation="vertical">
+		<TextView
+				android:layout_width = "match_parent"
+				android:layout_height = "wrap_content"
+				android:gravity="center"
+				android:textSize="20sp"
+				android:textStyle="bold"
+				android:text="@{gson.name}"/>
+		<Button
+				android:id="@+id/framget_button"
+				android:layout_width = "match_parent"
+				android:layout_height = "50sp"
+				android:onClick="@{()->fc.updateText(gson)}"
+				android:text="改变数据,实时刷新"/>
+	</LinearLayout >
+</layout >
